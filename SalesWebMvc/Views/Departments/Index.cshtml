@@ -1,0 +1,14 @@
+@model IEnumerable<SalesWebMvc.Models.Department>
+
+@{
+    ViewData["Title"] = "Departments";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<ul>
+@foreach (var department in Model)
+{
+    <li>@department.Id - @department.Name</li>
+}
+</ul>

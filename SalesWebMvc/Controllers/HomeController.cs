@@ -20,6 +20,9 @@ public class HomeController : Controller
 
     public IActionResult Privacy()
     {
+        ViewData["Email"] = "contact@gmail.com";
+        ViewData["Address"] = "Rua Doze de Julho, 123";
+
         return View();
     }
 

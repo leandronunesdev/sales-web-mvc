@@ -1,0 +1,71 @@
+@model SalesWebMvc.Models.Seller
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <h4>Seller</h4>
+    <hr />
+
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label fw-bold">
+            @Html.DisplayNameFor(model => model.Name)
+        </label>
+        <div class="col-sm-9">
+            <p class="form-control-plaintext">
+                @Html.DisplayFor(model => model.Name)
+            </p>
+        </div>
+    </div>
+
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label fw-bold">
+            @Html.DisplayNameFor(model => model.Email)
+        </label>
+        <div class="col-sm-9">
+            <p class="form-control-plaintext">
+                @Html.DisplayFor(model => model.Email)
+            </p>
+        </div>
+    </div>
+
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label fw-bold">
+            @Html.DisplayNameFor(model => model.BirthDate)
+        </label>
+        <div class="col-sm-9">
+            <p class="form-control-plaintext">
+                @Model.BirthDate.ToString("yyyy-MM-dd")
+            </p>
+        </div>
+    </div>
+
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label fw-bold">
+            @Html.DisplayNameFor(model => model.BaseSalary)
+        </label>
+        <div class="col-sm-9">
+            <p class="form-control-plaintext">
+                @Model.BaseSalary.ToString("C")
+            </p>
+        </div>
+    </div>
+
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label fw-bold">
+            @Html.DisplayNameFor(model => model.Department)
+        </label>
+        <div class="col-sm-9">
+            <p class="form-control-plaintext">
+                @Model.Department?.Name
+            </p>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-secondary">Edit</a>
+    <a asp-action="Index" class="btn btn-outline-secondary">Back to List</a>
+</div>

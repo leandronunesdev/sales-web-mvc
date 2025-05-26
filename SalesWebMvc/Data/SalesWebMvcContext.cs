@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using SalesWebMvc.Models;
 
@@ -16,4 +12,14 @@ public class SalesWebMvcContext : DbContext
     public DbSet<Seller> Seller { get; set; }
     public DbSet<SalesRecord> SalesRecord { get; set; }
 
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<SalesRecord>()
+            .HasOne(sr => sr.Seller)
+            .WithMany(s => s.Sales)
+            .HasForeignKey(sr => sr.SellerId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        base.OnModelCreating(modelBuilder);
+    }
 }
